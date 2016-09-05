@@ -1,0 +1,11 @@
+0 is black and 255 white
+imread returns: uint8
+Convert from uint8 to double, to allow math operations
+to cast to double: double()
+rgb2gray accepts argument: uint8
+to do subtractions use: double images (also works with uint8 images...)
+process_im requires: double image
+to apply threshold_im use uint8 rather than double images
+g=[121]'*[121]/16;
+I3 = conv2(I2, g); % Convolve image with filter mask
+I3 = conv2(I2, g, 'same'); % Convolve image, but keep original size

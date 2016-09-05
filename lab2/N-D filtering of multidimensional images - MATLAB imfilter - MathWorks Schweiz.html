@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)http://ch.mathworks.com/help/images/ref/imfilter.html -->
+<html class="wf-futurapt-n4-active wf-futurapt-i4-active wf-futurapt-n5-active wf-futurapt-i5-active wf-futurapt-n7-active wf-futurapt-i7-active wf-automate-n7-active wf-minionprosubhead-n4-active wf-museoslab-n7-active wf-active"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link href="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/site6.css" rel="stylesheet" type="text/css">
+<link href="http://ch.mathworks.com/includes_content/responsive/css/site6_lg.css?20150306" rel="stylesheet" media="screen and (min-width: 1200px)">
+<link href="http://ch.mathworks.com/includes_content/responsive/css/site6_md.css?20150306" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)">
+<link href="http://ch.mathworks.com/includes_content/responsive/css/site6_sm+xs.css?20150306" rel="stylesheet" media="screen and (max-width: 991px)">
+<link href="http://ch.mathworks.com/includes_content/responsive/css/site6_sm.css?20150306" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)">
+<link href="http://ch.mathworks.com/includes_content/responsive/css/site6_xs.css?20150306" rel="stylesheet" media="screen and (max-width: 767px)">
+<!--[if IE 8]>
+<link href="/includes_content/responsive/css/site6_ie8.css?20150306" rel="stylesheet" type="text/css">
+<script src="/includes_content/responsive/scripts/bootstrap/html5shiv-printshiv.js"></script>
+<script src="/includes_content/responsive/scripts/bootstrap/respond.min.js"></script>
+<script src="/includes_content/responsive/scripts/bootstrap/placeholders.min.js"></script>
+<![endif]-->
+<!--[if IE 9]>
+<link href="/includes_content/responsive/css/site6_ie9.css?20150306" rel="stylesheet" type="text/css">
+<script src="/includes_content/responsive/scripts/bootstrap/placeholders.min.js"></script>
+<![endif]-->
+<link href="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/site6_offcanvas.css" rel="stylesheet" type="text/css">
+<!--[if IE 8]>
+<link href="/includes_content/responsive/css/site6_offcanvas_ie8.css?20150306" rel="stylesheet" type="text/css">
+<script src="/includes_content/responsive/scripts/bootstrap/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" async="" src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/ahy.js"></script><script src="http://edge.quantserve.com/aquant.js?a=p-zfNtLVVEHXE-1" async="" type="text/javascript"></script><script src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/jquery-latest.js"></script>
+<script src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/jquery.mobile.custom.min.js"></script>
+<script src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/bootstrap.min.js"></script>
+<script src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/global.js"></script>
+<script src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/omk6upx.js"></script>
+<style type="text/css">.tk-futura-pt{font-family:"futura-pt",sans-serif;}.tk-automate{font-family:"automate",sans-serif;}.tk-minion-pro-subhead{font-family:"minion-pro-subhead",serif;}.tk-museo-slab{font-family:"museo-slab",serif;}</style><link rel="stylesheet" href="http://fonts.mathworks.com/k/omk6upx-d.css?3bb2a6e53c9684ffdc9a99f51d5b2a62179aa97c0a635ed0f5ea36ad93179d2a39f5fae7ec5e02debd5f8190329d2009544031e41341f7a787389c51be393633f0d071c4046e04aa6bab5d2fdf2bc664f4159b2bb5c650ee131b9cfa1a436bb4d365055b287e244bf27beca9328d85720b8c3a3c6b00b2473c3f23a532bff1f5caefcdfa8a075e3fe06e648e9f22a324b625d18a92f9e441ba7aed719c6e7a6a551a145621132cef5e63291d6b7f126ccfc5eef2e0ade2c717bd1d52bdc2a8699b2fe6aec891a29ed5e7fd5a94a100e3e9957c839d065ae52748fbbfe9ab0c88fa764431ca67a43f3f05f900fba42c5412c04db63b8a056bfe8437ae75c273fc79b6df2f3bca47ab66e974c98df6f42e4e6000696369ca66123da2c527eee705843992be9c14fe499d4d9a9befad85e0b6e53ca19b38d7f58a10b259291640b219d77ea99a060d6f57cae98c0263756c56"><script>try{Typekit.load();}catch(e){}</script>
+<!-- BEGIN Adobe DTM -->
+<script src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/satelliteLib-e8d23c2e444abadc572df06537e2def59c01db09.js"></script><script src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/mbox-contents-95c6a4d9c82a8d20476522984666120b54192e9b.js"></script><style>.mboxDefault { visibility:hidden; }</style>
+<!-- END Adobe DTM -->
+<link href="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/site6_de.css" rel="stylesheet" type="text/css">
+<link href="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/doc_center.css" rel="stylesheet" type="text/css">
+<!--[if IE 8]>
+<link href="/includes_content/releases/R2015a/css/doc_center_ie8.css?20150306" rel="stylesheet" type="text/css">
+<![endif]-->
+<!--[if IE 9]>
+<link href="/includes_content/releases/R2015a/css/doc_center_ie9.css?20150306" rel="stylesheet" type="text/css">
+<![endif]-->
+<link href="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/doc_center_print.css" rel="stylesheet" type="text/css" media="print">
+<script src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/doc_scrollspy.js"></script>
+<link rel="stylesheet" href="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/docstyle.css" type="text/css">
+<meta name="chunktype" content="refpage">
+<meta name="refentity" itemprop="refentity" content="function:imfilter">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta name="toctype" itemprop="pagetype" content="fcn">
+<meta name="infotype" itemprop="infotype" content="ref/function">
+<meta name="description" itemprop="description" content="This MATLAB function filters the multidimensional array A with the multidimensional filter h.">
+<script type="text/javascript" src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/l10n.js"></script>
+<script type="text/javascript" src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/docscripts.js"></script>
+<script type="text/javascript" src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/mw.toc.js"></script>
+<script type="text/javascript" src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/mw.imagescaling.js"></script>
+<script type="text/javascript" src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/mw.imageanimation.js"></script>
+<script type="text/javascript" src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/mw.breadcrumb.js"></script>
+<script type="text/javascript" src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/jquery.highlight.js"></script>
+<script type="text/javascript" src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/nanoscroller.min.js"></script>
+<script type="text/javascript" src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/doc_omniture.js"></script>
+<!-- Additions/overrides from the doc side -->
+<script type="text/javascript" src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/docsearch.js"></script>
+<script type="text/javascript" src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/jquery.toggleval.js"></script>
+<script type="text/javascript" src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/MathRenderer.js"></script><style type="text/css">math { visibility: hidden; }</style><link type="text/css" rel="stylesheet" href="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/main.css"><script type="text/javascript" src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/dojo.js"></script>
+<style type="text/css" id="ki-fxc-f6"></style><style type="text/css" id="ki-fxc-fp"></style></head>
+  
+<body id="responsive_offcanvas" class="no_animate">
+
+  <!-- Mobile TopNav: Start -->
+<div class="header visible-xs visible-sm" id="header_mobile">
+<nav class="navbar navbar-default" role="navigation">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle topnav_toggle" data-toggle="collapse" data-target="#topnav_collapse">
+<span class="sr-only">Toggle Main Navigation</span>
+<span class="icon-menu"></span>
+</button>
+<a href="http://ch.mathworks.com/index.html?s_tid=gn_logo" class="svg_link navbar-brand">
+<object data="http://ch.mathworks.com/images/responsive/global/pic-header-mathworks-logo.svg" alt="MathWorks" class="mw_logo" type="image/svg+xml">
+<img src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/pic-header-mathworks-logo.png" class="mw_logo" alt="MathWorks">
+</object>
+</a>
+</div>
+</div>
+</div>
+<div class="row visible-xs visible-sm">
+<div class="col-xs-12">
+<div class="navbar-collapse collapse" id="topnav_collapse">
+<ul class="nav navbar-nav" id="topnav">
+<li class="topnav_products "><a href="http://ch.mathworks.com/products/?s_tid=gn_ps">Produkte</a></li>
+<li class="topnav_solutions "><a href="http://ch.mathworks.com/solutions/?s_tid=gn_sol">Lösungen</a></li>
+<li class="topnav_academia "><a href="http://ch.mathworks.com/academia/?s_tid=gn_acad">Forschung und Lehre</a></li>
+<li class="topnav_support "><a href="http://ch.mathworks.com/support/?s_tid=gn_supp">Support</a></li>
+<li class="topnav_community "><a href="http://ch.mathworks.com/matlabcentral/?s_tid=gn_mlc">User Community</a></li>
+<li class="topnav_events "><a href="http://ch.mathworks.com/company/events/?s_tid=gn_ev">Veranstaltungen</a></li>
+<li class="topnav_company "><a href="http://ch.mathworks.com/company/?s_tid=gn_co">Unternehmen</a></li>
+<li class="headernav_contact"><a href="http://ch.mathworks.com/company/aboutus/contact_us/?s_tid=gn_cntus">Kontakt</a></li>
+<li class="headernav_store"><a href="http://ch.mathworks.com/store/default.do?s_cid=store_top_nav&s_tid=gn_store">Kaufinfos</a></li>
+<li class="headernav_login dropdown">
+<a href="http://ch.mathworks.com/help/images/ref/imfilter.html#" class="dropdown-toggle" data-toggle="dropdown">
+Anmelden
+<b class="caret"></b>
+</a>
+<ul class="dropdown-menu" id="mwa-nav">
+<li class="mwa-nav_logout"><a id="mwa-log_in" href="https://ch.mathworks.com/accesslogin/login.do?uri=http://ch.mathworks.com/help/images/ref/imfilter.html">Anmelden</a></li>
+<li class="mwa-nav_account"><a id="mwa-create_account" href="https://ch.mathworks.com/accesslogin/createProfile.do?uri=http://ch.mathworks.com/help/images/ref/imfilter.html">Account Anlegen</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<!-- Mobile TopNav: End -->
+<!-- Conjoined Header: Start -->
+<div class="sticky_header_container affix">
+<!-- Desktop TopNav: Start -->
+<div class="header hidden-xs hidden-sm" id="header_desktop">
+<nav class="navbar navbar-default" role="navigation">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="collapse navbar-collapse" id="headernav_collapse">
+<ul class="nav navbar-nav navbar-right" id="headernav">
+<li class="headernav_contact"><a href="http://ch.mathworks.com/company/aboutus/contact_us/?s_tid=gn_cntus">Kontakt</a></li>
+<li class="headernav_store"><a href="http://ch.mathworks.com/store/default.do?s_cid=store_top_nav&s_tid=gn_store">Kaufinfos</a></li>
+<li class="headernav_login dropdown">
+<a href="http://ch.mathworks.com/help/images/ref/imfilter.html#" class="dropdown-toggle" data-toggle="dropdown">
+Anmelden
+<b class="caret"></b>
+</a>
+<ul class="dropdown-menu" id="mwa-nav">
+<li class="mwa-nav_logout"><a id="mwa-log_in" href="https://ch.mathworks.com/accesslogin/login.do?uri=http://ch.mathworks.com/help/images/ref/imfilter.html">Anmelden</a></li>
+<li class="mwa-nav_account"><a id="mwa-create_account" href="https://ch.mathworks.com/accesslogin/createProfile.do?uri=http://ch.mathworks.com/help/images/ref/imfilter.html">Account Anlegen</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12">
+<div class="navbar-header">
+<div class="logo_container hidden-xs hidden-sm">
+<a href="http://ch.mathworks.com/index.html?s_tid=gn_logo" class="svg_link pull-left">
+<object data="http://ch.mathworks.com/images/responsive/global/pic-header-mathworks-logo.svg" alt="MathWorks" class="mw_logo" type="image/svg+xml">
+<img src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/pic-header-mathworks-logo.png" alt="MathWorks">
+</object>
+</a>
+</div>
+<div class="navbar-collapse collapse hidden-xs hidden-sm">
+<ul class="nav navbar-nav" id="topnav">
+<li class="topnav_products "><a href="http://ch.mathworks.com/products/?s_tid=gn_ps">Produkte</a></li>
+<li class="topnav_solutions "><a href="http://ch.mathworks.com/solutions/?s_tid=gn_sol">Lösungen</a></li>
+<li class="topnav_academia "><a href="http://ch.mathworks.com/academia/?s_tid=gn_acad">Forschung und Lehre</a></li>
+<li class="topnav_support "><a href="http://ch.mathworks.com/support/?s_tid=gn_supp">Support</a></li>
+<li class="topnav_community "><a href="http://ch.mathworks.com/matlabcentral/?s_tid=gn_mlc">User Community</a></li>
+<li class="topnav_events "><a href="http://ch.mathworks.com/company/events/?s_tid=gn_ev">Veranstaltungen</a></li>
+<li class="topnav_company "><a href="http://ch.mathworks.com/company/?s_tid=gn_co">Unternehmen</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<!-- Desktop TopNav: End -->
+<!-- Section Header: Start -->
+<div class="section_header level_3">
+<div class="container-fluid">
+<div class="row" id="mobile_search_row">
+<div class="col-xs-12 col-sm-6 col-sm-push-6 col-md-5 col-md-push-7" id="mobile_search">
+<div class="search_nested_content_container">
+<div id="search_scope_doc" class="collapse in">
+<form id="docsearch_form" name="docsearch_form" method="get" data-release="R2015a" data-language="en" action="http://ch.mathworks.com/help/search.html">
+<div class="input-group tokenized_search_field">
+<label class="sr-only">Search MATLAB Documentation</label>
+<input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search R2015a Documentation" id="docsearch">
+<div class="input-group-btn">
+<button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown" tabindex="-1"><span class="caret"></span><span class="search_scope_label">Documentation</span></button>
+<ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu">
+<!-- <li data-toggle="collapse" data-target="#search_scope_doc"><a href="#">Documentation</a></li> -->
+<li data-toggle="collapse" data-target="#search_scope_support" class="doc_search_scope_trigger"><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#">Support</a></li>
+<li data-toggle="collapse" data-target="#search_scope_site" class="doc_search_scope_trigger"><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#">MathWorks</a></li>
+</ul>
+<script>
+$(".doc_search_scope_trigger").click(function() {
+$("#search_scope_doc").removeClass("in");
+});
+</script>
+<button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1" disabled=""></button>
+</div>
+</div>
+</form>
+</div>
+<div id="search_scope_support" class="collapse">
+<form id="support_search" action="http://ch.mathworks.com/support/search_results.html" method="get" accept-charset="utf-8">
+<div class="input-group">
+<label class="sr-only">Search All Support Resources</label>
+<input id="suggestion" type="hidden" name="suggestion" value="">
+<span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+<input id="search" class="form-control conjoined_search" type="text" name="q" placeholder="Search All Support Resources" autocomplete="off">
+<div class="input-group-btn">
+<button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown" tabindex="-1"><span class="caret"></span><span class="search_scope_label">Support</span></button>
+<ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu">
+<li data-toggle="collapse" data-target="#search_scope_doc" class="support_search_scope_trigger"><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#">Documentation</a></li>
+<!--<li data-toggle="collapse" data-target="#search_scope_support"><a href="#">Support</a></li>-->
+<li data-toggle="collapse" data-target="#search_scope_site" class="support_search_scope_trigger"><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#">MathWorks</a></li>
+</ul>
+<script>
+$(".support_search_scope_trigger").click(function() {
+$("#search_scope_support").removeClass("in");
+});
+</script>
+<button type="submit" name="submitsearch" id="support_submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button>
+</div>
+</div>
+</form>
+</div>
+<div id="search_scope_site" class="collapse">
+<form name="search" id="site_search" class="site_search" action="http://ch.mathworks.com/searchresults/" method="get">
+<div class="input-group">
+<label class="sr-only">MathWorks-Suche</label>
+<input type="hidden" name="c[]" value="entire_site_de">
+<input type="text" name="q" id="query" class="form-control conjoined_search" placeholder="MathWorks-Suche" autocomplete="off" \="">
+<div class="input-group-btn">
+<button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown" tabindex="-1"><span class="caret"></span><span class="search_scope_label">MathWorks</span></button>
+<ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu">
+<li data-toggle="collapse" data-target="#search_scope_doc" class="site_search_scope_trigger"><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#">Documentation</a></li>
+<li data-toggle="collapse" data-target="#search_scope_support" class="site_search_scope_trigger"><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#">Support</a></li>
+<!--<li data-toggle="collapse" data-target="#search_scope_site" class="support_search_scope_trigger"><a href="#">MathWorks</a></li>-->
+</ul>
+<script>
+$(".site_search_scope_trigger").click(function() {
+$("#search_scope_site").removeClass("in");
+});
+</script>
+<button type="submit" id="searchbutton" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button>
+</div>
+</div>
+</form>
+</div>
+</div>
+<button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button>
+</div>
+<div class="col-xs-9 col-sm-6 col-sm-pull-6 col-md-7 col-md-pull-5">
+<div class="section_header_content">
+<h1>Documentation</h1>
+</div>
+</div>
+<div class="col-xs-3 visible-xs">
+<button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button>
+</div>
+</div>
+<script>
+$(".section_header h1").click(function(){
+$(window.location).attr('href', '/help');
+});
+</script>
+<!-- Section Header: End -->
+<!-- Mobile Local Nav: Start -->
+<!-- Mobile Local Nav: End -->
+</div>
+</div>
+<!-- Horo Nav: Start -->
+<div class="horizontal_nav_container">
+<div class="offcanvas_actuator active" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle">
+<button type="button" class="btn">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-menu icon_32"></span>
+</button>
+<span class="offcanvas_actuator_label"></span>
+<span class="offcanvas_actuator_close"></span>
+</div>
+<div class="offcanvas_horizontal_nav">
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-12 hidden-xs">
+<div class="cta_box">
+<ul class="list-unstyled list-inline">
+<li class="cta_item cta_item_general"><a href="http://ch.mathworks.com/programs/bounce/doc_tryit.html" class="icon-download">Trials</a></li>
+<li class="cta_item cta_item_general"><a href="http://ch.mathworks.com/support/web_downloads_bounce.html?s_cid=1008_degr_docdn_270055" class="icon-download">Product Updates</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Horo Nav: End -->
+</div>
+<!-- Conjoined Header: End -->
+
+  <div class="row-offcanvas row-offcanvas-left active">
+    <div class="sidebar-offcanvas" id="sidebar" role="navigation">
+      <nav class="offcanvas_nav" role="navigation">
+          <ul xmlns:atict="http://www.arbortext.com/namespace/atict" class="nav_breadcrumb">
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="http://ch.mathworks.com/help/index.html" itemprop="url"><span itemprop="title">All Products</span></a></li>
+</ul>
+
+<ul xmlns:atict="http://www.arbortext.com/namespace/atict" class="nav_disambiguation">
+<li class="product"><a href="http://ch.mathworks.com/help/images/index.html">Image Processing Toolbox</a>
+<div class="dropdown">
+<span class="icon-arrow-down icon_16" id="dropdownMenu1" data-toggle="dropdown"></span>
+<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+<li role="presentation"><a role="menuitem" tabindex="-1" href="http://ch.mathworks.com/help/images/getting-started-with-image-processing-toolbox.html?s_cid=doc_flyout">Getting Started</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="http://ch.mathworks.com/help/images/examples.html?s_cid=doc_flyout">Examples</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="http://ch.mathworks.com/help/images/functionlist.html?s_cid=doc_flyout">Functions and Other Reference</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="http://ch.mathworks.com/help/images/release-notes.html?s_cid=doc_flyout">Release Notes</a></li>
+<li role="presentation"><a role="menuitem" tabindex="-1" href="http://ch.mathworks.com/help/releases/R2015a/pdf_doc/images/index.html?s_cid=doc_flyout">PDF Documentation</a></li>
+</ul>
+</div>
+</li>
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="http://ch.mathworks.com/help/images/image-enhancement-and-restoration.html" itemprop="url"><span itemprop="title">Image Enhancement</span></a></li>
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="http://ch.mathworks.com/help/images/linear-filtering.html" itemprop="url"><span itemprop="title">Image Filtering</span></a></li>
+</ul>
+<ul xmlns:atict="http://www.arbortext.com/namespace/atict" class="nav_disambiguation">
+<li><a href="http://ch.mathworks.com/help/images/index.html">Image Processing Toolbox</a>
+</li>
+<li><a href="http://ch.mathworks.com/help/images/code-generation.html" itemprop="url">Code Generation</a></li>
+</ul>
+<ul xmlns:atict="http://www.arbortext.com/namespace/atict" class="nav_disambiguation">
+<li><a href="http://ch.mathworks.com/help/images/index.html">Image Processing Toolbox</a>
+</li>
+<li><a href="http://ch.mathworks.com/help/images/gpu-computing.html" itemprop="url">GPU Computing</a></li>
+</ul>
+<ul xmlns:atict="http://www.arbortext.com/namespace/atict" class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#responsive_offcanvas">imfilter</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-refentry">On this page</li>
+<li class=""><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#syntax" class="intrnllnk">Syntax</a></li>
+<li class=""><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#description" class="intrnllnk">Description</a></li>
+<li class=""><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#examples" class="intrnllnk">Examples</a><ul class="nav">
+<li class=""><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#btsmcj2-2_1" class="intrnllnk">Create a Filter and Apply It</a></li>
+<li class=""><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#btsraen-1" class="intrnllnk">Create a Filter and Apply it on a GPU</a></li>
+</ul>
+</li><li class="active"><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#inputs" class="intrnllnk">Input Arguments</a><ul class="nav">
+<li class=""><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#input_argument_a" class="intrnllnk">A</a></li>
+<li class=""><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#input_argument_h" class="intrnllnk">h</a></li>
+<li class="active"><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#input_argument_gpuarraya" class="intrnllnk">gpuArrayA</a></li>
+<li><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#input_argument_options" class="intrnllnk">options</a></li>
+</ul>
+</li><li><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#zmw57dd0e42438" class="intrnllnk">Output Arguments</a><ul class="nav">
+<li><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#output_argument_b" class="intrnllnk">B</a></li>
+<li><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#output_argument_gpuarrayb" class="intrnllnk">gpuarrayB</a></li>
+</ul>
+</li><li><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#moreabout" class="intrnllnk">More About</a><ul class="nav">
+<li><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#bttwxss-4" class="intrnllnk">Tips</a></li>
+</ul>
+</li><li><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#zmw57dd0e42681" class="intrnllnk">See Also</a></li>
+</ul>
+
+      </nav>
+      <script src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/offcanvas.js"></script>
+    </div>
+
+    <!-- MOBILE CTA - Begin -->
+    <!-- MOBILE CTA - End -->
+
+
+    <div class="content_container" id="content_container">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12">
+            
+
+
+
+
+
+
+           
+     
+    
+           
+<section id="doc_center_content" lang="en"><div id="pgtype-ref-function"><div class="function_ref">
+  
+
+<span id="btsmcj2-1" class="anchor_target"></span><div itemprop="content"><h1 class="r2015a" itemprop="title">imfilter</h1><!-- SYNCHTO: _bqj6g67.html --><div class="doc_topic_desc"><div class="purpose_container"><p itemprop="purpose">N-D filtering of multidimensional images </p><div class="switch"><a href="javascript:void(0);" id="expandAllPage" data-allexpanded="true">collapse all in page</a></div></div></div></div>
+<div class="ref_sect"><h2 id="syntax">Syntax</h2><div class="syntax_signature"><div class="syntax_signature_module"><ul><li><code class="synopsis">B = imfilter(A,h)</code> <span class="syntax_example"><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#btsmcj2-2_1" class="intrnllnk">example</a></span></li><li><code class="synopsis">gpuarrayB = imfilter(gpuArrayA,h)</code> <span class="syntax_example"><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#btsraen-1" class="intrnllnk">example</a></span></li><li><code class="synopsis"><span class="argument_placeholder">___</span>= imfilter(<span class="argument_placeholder">___</span>,options,...)</code> <span class="syntax_example"><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#btsmcj2-2_1" class="intrnllnk">example</a></span></li></ul></div></div></div><div class="clear"></div><div itemprop="content" class="ref_sect"><span id="btsmcj2-2" class="anchor_target"></span><h2 id="description">Description</h2><div class="descriptions"><div class="description_module"><div class="description_element"><p class="syntax_example"><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#btsmcj2-2_1" class="intrnllnk">example</a></p><div class="code_responsive"><p><span itemprop="syntax"><code><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#outputarg_B" class="intrnllnk"><code>B</code></a> = imfilter(<a href="http://ch.mathworks.com/help/images/ref/imfilter.html#inputarg_A" class="intrnllnk"><code>A</code></a>,<a href="http://ch.mathworks.com/help/images/ref/imfilter.html#inputarg_h" class="intrnllnk"><code>h</code></a>)</code></span> filters
+the multidimensional array <code>A</code> with the multidimensional
+filter <code>h</code>. The array <code>A</code> can
+be <code>logical</code> or a nonsparse numeric array of any
+class and dimension. The result <code>B</code> has the same
+size and class as <code>A</code>. </p><p><code>imfilter</code> computes each element of the output, <code>B</code>,
+using double-precision floating point.  If <code>A</code> is
+an integer or logical array, <code>imfilter</code> truncates
+output elements that exceed the range of the given type, and rounds
+fractional values. </p><p>This function supports code generation (see <a href="http://ch.mathworks.com/help/images/ref/imfilter.html#bttwxss-4" class="intrnllnk">Tips</a>).</p></div></div><div class="description_element"><p class="syntax_example"><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#btsraen-1" class="intrnllnk">example</a></p><div class="code_responsive"><p><span itemprop="syntax"><code><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#outputarg_gpuarrayB" class="intrnllnk"><code>gpuarrayB</code></a> = imfilter(<a href="http://ch.mathworks.com/help/images/ref/imfilter.html#inputarg_gpuArrayA" class="intrnllnk"><code>gpuArrayA</code></a>,<a href="http://ch.mathworks.com/help/images/ref/imfilter.html#inputarg_h" class="intrnllnk"><code>h</code></a>)</code></span> performs
+the operation on a GPU. <code>gpuArrayA</code> is a gpuArray
+that contains a <code>logical</code> or a nonsparse numeric
+array of any class and dimension. When used with a <code>gpuArray</code>, <code>H</code> must
+be a vector or 2-D matrix. This syntax requires the Parallel Computing Toolbox™.</p></div></div><div class="description_element"><p class="syntax_example"><a href="http://ch.mathworks.com/help/images/ref/imfilter.html#btsmcj2-2_1" class="intrnllnk">example</a></p><div class="code_responsive"><p><span itemprop="syntax"><code><span class="argument_placeholder">___</span>= imfilter(<span class="argument_placeholder">___</span>,<a href="http://ch.mathworks.com/help/images/ref/imfilter.html#inputarg_options" class="intrnllnk"><code>options</code></a>,...)</code></span> performs
+multidimensional filtering according to the specified options.</p></div></div></div></div><div class="clear"></div></div><div itemprop="content" class="ref_sect"><div class="clear"></div><div class="examples"><h2 id="examples">Examples</h2><div class="expandableContent" id="expandableExamples"><p class="switch"><a href="javascript:void(0);" class="expandAllLink" data-allexpanded="true">collapse all</a></p><div class="example_module expandableContent" id="example_1"><span id="btsmcj2-2_1" class="anchor_target"></span><h3 class="expand expanded" id="btsmcj2-2_1"><span><a style="display:block;" href="javascript:void(0);" title="Expand/Collapse"><span class="example_title">Create a Filter and Apply It</span></a></span></h3><div class="collapse" style="display:block"><p>Read a color image into the workspace and view it.</p><div class="code_responsive"><div class="programlisting"><div class="codeinput"><pre>originalRGB = imread(<span style="color:#A020F0">'peppers.png'</span>);
+imshow(originalRGB)</pre></div></div></div><span id="btsq_e8-1" class="anchor_target"></span><p class="title"><b>Original Image</b></p><p>
+<img src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/still_peppers.gif" height="385" width="513" alt=""></p><p>Create a filter, <code>h</code>, that can be used
+to approximate linear camera motion.</p><div class="code_responsive"><div class="programlisting"><div class="codeinput"><pre>h = fspecial(<span style="color:#A020F0">'motion'</span>, 50, 45);</pre></div></div></div><p>Apply the filter, using <code>imfilter</code>, to
+the image <code>originalRGB</code> to create a new image, <code>filteredRGB</code>.</p><div class="code_responsive"><div class="programlisting"><div class="codeinput"><pre>filteredRGB = imfilter(originalRGB, h);
+figure, imshow(filteredRGB)</pre></div></div></div><span id="btsq_ht-1" class="anchor_target"></span><p class="title"><b>Filtered Image</b></p><p>
+<img src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/moving_peppers.gif" height="382" width="510" alt=""></p><p>Note that <code>imfilter</code> is more memory efficient
+than some other filtering operations in that it outputs an array of
+the same data type as the input image array. In this example, the
+output is an array of <code>uint8</code>.</p><p>Try the filtering operation again, this time specifying
+the <code>replicate</code> boundary option.</p><div class="code_responsive"><div class="programlisting"><div class="codeinput"><pre>boundaryReplicateRGB = imfilter(originalRGB, h, <span style="color:#A020F0">'replicate'</span>);
+figure, imshow(boundaryReplicateRGB)</pre></div></div></div><span id="btsq_q6-1" class="anchor_target"></span><p class="title"><b>Image with Replicate Boundary</b></p><p>
+<img src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/imfilter3.gif" height="380" width="509" alt=""></p></div></div><div class="example_module expandableContent" id="example_2"><span id="btsraen-1" class="anchor_target"></span><h3 class="expand expanded" id="btsraen-1"><span><a style="display:block;" href="javascript:void(0);" title="Expand/Collapse"><span class="example_title">Create a Filter and Apply it on a GPU</span></a></span></h3><div class="collapse" style="display:block"><p>Read a color image into the workspace as a <code>gpuArray</code> and
+view it.</p><div class="code_responsive"><div class="programlisting"><div class="codeinput"><pre>originalRGB = gpuArray(imread(<span style="color:#A020F0">'peppers.png'</span>));
+imshow(originalRGB)</pre></div></div></div><span id="btsraen-2" class="anchor_target"></span><p class="title"><b>Original Image</b></p><p>
+<img src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/still_peppers.gif" height="385" width="513" alt=""></p><p>Create a filter, <code>h</code>, that can be used
+to approximate linear camera motion.</p><div class="code_responsive"><div class="programlisting"><div class="codeinput"><pre>h = fspecial(<span style="color:#A020F0">'motion'</span>, 50, 45);</pre></div></div></div><p>Apply the filter, using <code>imfilter</code>, to
+the image <code>originalRGB</code> to create a new image, <code>filteredRGB</code>.
+The image is returned as a <code>gpuArray</code>.</p><div class="code_responsive"><div class="programlisting"><div class="codeinput"><pre>filteredRGB = imfilter(originalRGB, h);
+figure, imshow(filteredRGB)</pre></div></div></div><span id="btsraen-3" class="anchor_target"></span><p class="title"><b>Filtered Image</b></p><p>
+<img src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/moving_peppers.gif" height="382" width="510" alt=""></p><p>Note that <code>imfilter</code> is more memory efficient
+than some other filtering operations in that it outputs an array of
+the same data type as the input image array. In this example, the
+output is an array of <code>uint8</code>.</p><div class="code_responsive"><div class="programlisting"><div class="codeinput"><pre>whos
+</pre></div></div></div><div class="code_responsive"><div class="programlisting"><div class="codeoutput"><pre>Name               Size               Bytes  Class       Attributes
+
+  filteredRGB      384x512x3              108  gpuArray              
+  h                 37x37               10952  double                
+  originalRGB      384x512x3              108  gpuArray                    </pre></div></div></div><p>Try the filtering operation again, this time specifying
+the <code>replicate</code> boundary option.</p><div class="code_responsive"><div class="programlisting"><div class="codeinput"><pre>boundaryReplicateRGB = imfilter(originalRGB, h, <span style="color:#A020F0">'replicate'</span>);
+figure, imshow(boundaryReplicateRGB)</pre></div></div></div><span id="btsraen-4" class="anchor_target"></span><p class="title"><b>Image with Replicate Boundary</b></p><p>
+<img src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/imfilter3.gif" height="380" width="509" alt=""></p></div></div></div></div></div><div itemprop="content" class="ref_sect"><h2 id="inputs">Input Arguments</h2><div class="expandableContent"><div class="arguments"><div class="input_argument_container"><p class="switch"><a href="javascript:void(0);" class="expandAllLink" data-allexpanded="true">collapse all</a></p><div class="expandableContent"><span id="inputarg_A" class="anchor_target"></span><h3 id="input_argument_a" class="expand expanded"><span><a style="display: block;" href="javascript:void(0);" title="Expand/Collapse"><span class="argument_name"><code>A</code> — Image to be filtered</span></a><span class="example_desc">nonsparse, numeric array of any class and dimension</span></span></h3><div class="collapse" style="display:block">
+<p>Image to be filtered, specified as a nonsparse, numeric array
+of any class and dimension</p>
+<p class="datatypelist"><strong>Data Types: </strong><code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>int64</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>uint64</code> | <code>logical</code></p></div></div><div class="expandableContent"><span id="inputarg_h" class="anchor_target"></span><h3 id="input_argument_h" class="expand expanded"><span><a style="display: block;" href="javascript:void(0);" title="Expand/Collapse"><span class="argument_name"><code>h</code> — Multidimensional filter</span></a><span class="example_desc">N-D array of doubles</span></span></h3><div class="collapse" style="display:block">
+<p>Multidimensional filter, specified as an N-D array of doubles.</p>
+<p class="datatypelist"><strong>Data Types: </strong><code>double</code></p></div></div><div class="expandableContent"><span id="inputarg_gpuArrayA" class="anchor_target"></span><h3 id="input_argument_gpuarraya" class="expand expanded"><span><a style="display: block;" href="javascript:void(0);" title="Expand/Collapse"><span class="argument_name"><code>gpuArrayA</code> — Image to be filtered</span></a><span class="example_desc"><code>gpuArray</code> object</span></span></h3><div class="collapse" style="display:block">
+<p>Image to be filtered, specified as a <code>gpuArray</code> object.
+When used with a <code>gpuArray</code>, <code>imfilter</code> computes <a href="http://ch.mathworks.com/help/images/ref/imfilter.html#outputarg_gpuarrayB" class="intrnllnk"><code>gpuarrayB</code></a>,
+using either single- or double-precision floating point, depending
+on the data type of <code>gpuArrayA</code>.  When <code>gpuArrayA</code> contains
+double-precision or <code>uint32</code> values, <code>imfilter</code> uses
+double-precision values.  For all other data types, <code>imfilter</code> uses
+single-precision.  If <code>gpuarrayA</code> is an integer or
+logical array, <code>imfilter</code> truncates output elements
+that exceed the range of the given type, and rounds off fractional
+values.</p>
+</div></div><div class="expandableContent"><span id="inputarg_options" class="anchor_target"></span><h3 id="input_argument_options" class="expand expanded"><span><a style="display: block;" href="javascript:void(0);" title="Expand/Collapse"><span class="argument_name"><code>options</code> — Options that control the filtering operation</span></a><span class="example_desc">character string | numeric value</span></span></h3><div class="collapse" style="display:block">
+<p>Options that control the filtering operation, specified as a
+character string or numeric value. The following table lists all supported
+options.</p>
+<span id="zmw57dd0e42329" class="anchor_target"></span><p class="title"><b>Boundary Options</b></p><div class="table-responsive"><table cellspacing="0" class="body" cellpadding="4" summary="Boundary Options" border="2"><colgroup><col width="21%"><col width="79%"></colgroup><thead><tr valign="top"><th><p>Option</p></th><th><p>Description</p></th></tr>
+</thead><tbody><tr valign="top"><td colspan="2">Boundary Options</td></tr>
+<tr valign="top"><td><p><code>X</code></p></td><td><p>Input array values outside the bounds of the array are
+implicitly assumed to have the value <code>X</code>. When no
+boundary option is specified, the default is <code>0</code>.</p></td></tr>
+<tr valign="top"><td><p><code>'symmetric'</code></p></td><td><p>Input array values outside the bounds of the array are
+computed by mirror-reflecting the array across the array border.</p></td></tr>
+<tr valign="top"><td><p><code>'replicate'</code></p></td><td><p>Input array values outside the bounds of the array are
+assumed to equal the nearest array border value.</p></td></tr>
+<tr valign="top"><td><p><code>'circular'</code></p></td><td><p>Input array values outside the bounds of the array are
+computed by implicitly assuming the input array is periodic.</p></td></tr>
+<tr valign="top"><td colspan="2">Output Size</td></tr>
+<tr valign="top"><td><p><code>'same'</code></p></td><td><p>The output array is the same size as the input array.
+This is the default behavior when no output size options are specified.</p></td></tr>
+<tr valign="top"><td><p><code>'full'</code></p></td><td><p>The output array is the full filtered result, and so
+is larger than the input array.</p></td></tr>
+<tr valign="top"><td colspan="2">Correlation and Convolution Options</td></tr>
+<tr valign="top"><td><p><code>'corr'</code></p></td><td><p><code>imfilter</code> performs multidimensional
+filtering using correlation, which is the same way that <code>filter2</code> performs
+filtering. When no correlation or convolution option is specified, <code>imfilter</code> uses
+correlation.</p></td></tr>
+<tr valign="top"><td><p><code>'conv'</code></p></td><td><p><code>imfilter</code> performs multidimensional
+filtering using convolution.</p></td></tr>
+</tbody></table></div><p></p>
+</div></div></div></div></div></div><div itemprop="content" class="ref_sect"><h2 id="zmw57dd0e42438">Output Arguments</h2><div class="expandableContent"><div class="arguments"><div class="output_argument_container"><p class="switch"><a href="javascript:void(0);" class="expandAllLink" data-allexpanded="true">collapse all</a></p><div class="expandableContent"><span id="outputarg_B" class="anchor_target"></span><h3 id="output_argument_b" class="expand expanded"><span><a style="display: block;" href="javascript:void(0);" title="Expand/Collapse"><span class="argument_name"><code>B</code> — Filtered image</span></a><span class="example_desc">numeric array the same size and class as input image</span></span></h3><div class="collapse" style="display:block">
+<p>Filtered image, returned as an array the same size and class
+as the input image.</p>
+</div></div><div class="expandableContent"><span id="outputarg_gpuarrayB" class="anchor_target"></span><h3 id="output_argument_gpuarrayb" class="expand expanded"><span><a style="display: block;" href="javascript:void(0);" title="Expand/Collapse"><span class="argument_name"><code>gpuarrayB</code> — Filtered image</span></a><span class="example_desc"><code>gpuArray</code></span></span></h3><div class="collapse" style="display:block">
+<p>Filtered image, returned as a <code>gpuArray</code>, the
+same size and class as <code>gpuarrayA</code></p>
+</div></div></div></div></div></div><div class="clear"></div><div class="moreabout ref_sect"><h2 id="moreabout">More About</h2><div class="expandableContent"><p class="switch"><a href="javascript:void(0);" class="expandAllLink" data-allexpanded="true">collapse all</a></p><div class="expandableContent" itemprop="content"><span id="bttwxss-4" class="anchor_target"></span><h3 class="expand expanded" id="bttwxss-4"><span><a style="display:block;" href="javascript:void(0);" title="Expand/Collapse"><span>Tips</span></a></span></h3><div class="collapse" style="display:block"><ul type="disc"><li><p>This function supports the generation of C code using <span>MATLAB<sup>®</sup> Coder™</span>.
+Note that if you choose the generic <code>MATLAB Host Computer</code> target
+platform, the function generates code that uses a precompiled, platform-specific
+shared library. Use of a shared library preserves performance optimizations
+but limits the target platforms for which code can be generated. For
+more information, see <a href="http://ch.mathworks.com/help/images/understanding-code-generation-with-image-processing-toolbox.html">Understanding Code Generation with Image Processing Toolbox</a>.</p><p>When generating code, the input image, <code>A</code>,
+must be 2-D or 3-D. The value of the input argument, <code>options</code>,
+must be a compile-time constant.</p></li><li><p>This function may take advantage of hardware optimization
+for data types <code>uint8</code>, <code>uint16</code>, <code>int16</code>, <code>single</code>,
+and <code>double</code> to run faster.</p></li></ul></div></div></div></div><div class="ref_sect">
+<h2 id="zmw57dd0e42681">See Also</h2><p><span itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/SeeAlso" itemprop="seealso"><a itemprop="url" href="http://ch.mathworks.com/help/matlab/ref/conv2.html"><span itemprop="name"><code>conv2</code></span></a></span> | <span itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/SeeAlso" itemprop="seealso"><a itemprop="url" href="http://ch.mathworks.com/help/matlab/ref/convn.html"><span itemprop="name"><code>convn</code></span></a></span> | <span itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/SeeAlso" itemprop="seealso"><a itemprop="url" href="http://ch.mathworks.com/help/matlab/ref/filter2.html"><span itemprop="name"><code>filter2</code></span></a></span> | <span itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/SeeAlso" itemprop="seealso"><a itemprop="url" href="http://ch.mathworks.com/help/images/ref/fspecial.html"><span itemprop="name"><code>fspecial</code></span></a></span> | <span itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/SeeAlso" itemprop="seealso"><a itemprop="url" href="http://ch.mathworks.com/help/distcomp/gpuarray.html"><span itemprop="name"><code>gpuArray</code></span></a></span></p>
+
+
+
+</div>
+</div></div></section>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onclick="openFeedbackWindow(&#39;http://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams=&#39;+document.location.href+&#39;-YES-R2015a&#39;);">
+<input type="button" value="No" onclick="openFeedbackWindow(&#39;http://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams=&#39;+document.location.href+&#39;-NO-R2015a&#39;);">
+</div>
+<!--Last updated: Thu Feb 26 21:37:22 EST 2015-->
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOBILE CTA - Begin -->
+    <div class="cta_container_mobile visible-xs">
+      <div class="container-fluid">      
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="cta_box">
+<ul class="list-unstyled list-inline">
+<li class="cta_item cta_item_general"><a href="http://ch.mathworks.com/programs/bounce/doc_tryit.html" class="icon-download">Trials</a></li>
+<li class="cta_item cta_item_general"><a href="http://ch.mathworks.com/support/web_downloads_bounce.html?s_cid=1008_degr_docdn_270055" class="icon-download">Product Updates</a></li>
+</ul>
+</div> 
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- MOBILE CTA - End -->
+
+        <!-- BODY TRAIL - Begin -->
+        <div class="body_trail_container">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="http://ch.mathworks.com/help/images/index.html">Image Processing Toolbox Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="http://ch.mathworks.com/help/images/getting-started-with-image-processing-toolbox.html?s_cid=doc_ftr">Getting Started</a></li>
+<li><a href="http://ch.mathworks.com/help/images/examples.html?s_cid=doc_ftr">Examples</a></li>
+<li><a href="http://ch.mathworks.com/help/images/functionlist.html?s_cid=doc_ftr">Functions and Other Reference</a></li>
+<li><a href="http://ch.mathworks.com/help/images/release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+<li><a href="http://ch.mathworks.com/help/releases/R2015a/pdf_doc/images/index.html?s_cid=doc_ftr">PDF Documentation</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="http://ch.mathworks.com/help/index.html">Other Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="http://ch.mathworks.com/help/matlab/index.html">MATLAB</a></li><li><a href="http://ch.mathworks.com/help/vision/index.html">Computer Vision System Toolbox</a></li><li><a href="http://ch.mathworks.com/help/signal/index.html">Signal Processing Toolbox</a></li><li><a href="http://ch.mathworks.com/help/stats/index.html">Statistics and Machine Learning Toolbox</a></li><li><a href="http://ch.mathworks.com/help/symbolic/index.html">Symbolic Math Toolbox</a></li><li><a href="http://ch.mathworks.com/help/index.html">All Products</a></li></ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="http://ch.mathworks.com/support">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="http://ch.mathworks.com/matlabcentral/answers">MATLAB Answers</a></li><li><a href="http://ch.mathworks.com/support/install-matlab.html">Installation Help</a></li><li><a href="http://ch.mathworks.com/support/bugreports">Bug Reports</a></li><li><a href="http://ch.mathworks.com/products/availability">Product Requirements</a></li><li><a href="http://ch.mathworks.com/download">Software Downloads</a></li></ul>
+</div>
+<div class="col-xs-12 col-sm-3">
+<div class="panel panel_color_transparent panel_color_fill">
+<div class="panel-body"> <img src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/bg-trial-arrow_02.png" class="add_margin_5">
+<h4>Try MATLAB, Simulink, and Other Products</h4>
+<a href="http://ch.mathworks.com/programs/trials/trial_request.html?prodcode=IP&s_iid=doc_trial_IP_footer" class="icon-chevron">Get trial now </a>
+</div>
+</div>
+</div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- BODY TRAIL - End -->
+
+    <footer id="footer" class="bs-footer">
+        <!-- FAT FOOTER - Begin --> 
+        <div class="container-fluid">
+          <div class="fat_footer_container">
+            <div class="execmatlabproduct">
+<p class="copyright">© 1994-2015 The MathWorks, Inc.</p>
+<ul class="footernav">
+<li class="footernav_acknowledgments"><a href="matlab:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li>
+<li class="footernav_trademarks"><a href="matlab:web([matlabroot '/trademarks.txt'])">Trademarks</a></li>
+<li class="footernav_patents"><a href="matlab:web([matlabroot '/patents.txt'])">Patents</a></li>
+<li class="footernav_terms"><a href="matlab:web(matlab.internal.licenseAgreement)">Terms of Use</a></li>
+</ul>
+</div>
+          </div>
+        </div>
+        <!-- FAT FOOTER - End -->
+      <div class="container-fluid">
+       <div class="footer">
+<div class="row">
+<div class="col-xs-12 col-lg-9">
+<p class="copyright">© 1994-2015 The MathWorks, Inc.</p>
+<ul class="footernav">
+<li class="footernav_country">
+<a href="javascript:void(0);" data-html="true" data-container="body" data-toggle="popover" data-placement="top" data-content="&lt;small&gt;&lt;div class=&#39;row&#39;&gt;&lt;div class=&#39;col-xs-12 col-sm-6&#39;&gt;&lt;ul class=&#39;list-unstyled&#39;&gt;&lt;li&gt;&lt;a href=&#39;http://www.mathworks.com/help/images/ref/imfilter.html?action=changeCountry&amp;s_tid=gn_loc_drop&#39;&gt;United States&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#39;http://www.mathworks.com/help/images/ref/imfilter.html?action=changeCountry&amp;s_tid=gn_loc_drop&#39;&gt;Canada&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#39;http://au.mathworks.com/help/images/ref/imfilter.html?action=changeCountry&amp;s_tid=gn_loc_drop&#39;&gt;Australia&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#39;http://de.mathworks.com/help/images/ref/imfilter.html?action=changeCountry&amp;s_tid=gn_loc_drop&#39;&gt;Österreich&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#39;http://nl.mathworks.com/help/images/ref/imfilter.html?action=changeCountry&amp;s_tid=gn_loc_drop&#39;&gt;Belgium&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#39;http://cn.mathworks.com/help/images/ref/imfilter.html?action=changeCountry&amp;s_tid=gn_loc_drop&#39;&gt;中国&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#39;http://se.mathworks.com/help/images/ref/imfilter.html?action=changeCountry&amp;s_tid=gn_loc_drop&#39;&gt;Denmark&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#39;http://se.mathworks.com/help/images/ref/imfilter.html?action=changeCountry&amp;s_tid=gn_loc_drop&#39;&gt;Finland&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#39;http://fr.mathworks.com/help/images/ref/imfilter.html?action=changeCountry&amp;s_tid=gn_loc_drop&#39;&gt;France&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#39;http://de.mathworks.com/help/images/ref/imfilter.html?action=changeCountry&amp;s_tid=gn_loc_drop&#39;&gt;Deutschland&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#39;http://in.mathworks.com/help/images/ref/imfilter.html?action=changeCountry&amp;s_tid=gn_loc_drop&#39;&gt;India&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#39;http://uk.mathworks.com/help/images/ref/imfilter.html?action=changeCountry&amp;s_tid=gn_loc_drop&#39;&gt;Ireland&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#39;http://it.mathworks.com/help/images/ref/imfilter.html?action=changeCountry&amp;s_tid=gn_loc_drop&#39;&gt;Italia&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div class=&#39;col-xs-12 col-sm-6&#39;&gt;&lt;ul class=&#39;list-unstyled&#39;&gt;&lt;li&gt;&lt;a href=&#39;http://jp.mathworks.com/help/images/ref/imfilter.html?action=changeCountry&amp;s_tid=gn_loc_drop&#39;&gt;日本&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#39;http://kr.mathworks.com/help/images/ref/imfilter.html?action=changeCountry&amp;s_tid=gn_loc_drop&#39;&gt;한국&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#39;http://nl.mathworks.com/help/images/ref/imfilter.html?action=changeCountry&amp;s_tid=gn_loc_drop&#39;&gt;Luxembourg&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#39;http://nl.mathworks.com/help/images/ref/imfilter.html?action=changeCountry&amp;s_tid=gn_loc_drop&#39;&gt;Netherlands&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#39;http://au.mathworks.com/help/images/ref/imfilter.html?action=changeCountry&amp;s_tid=gn_loc_drop&#39;&gt;New Zealand&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#39;http://se.mathworks.com/help/images/ref/imfilter.html?action=changeCountry&amp;s_tid=gn_loc_drop&#39;&gt;Norway&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#39;http://www.mathworks.com/help/images/ref/imfilter.html?action=changeCountry&amp;s_tid=gn_loc_drop&#39;&gt;Portugal&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#39;http://es.mathworks.com/help/images/ref/imfilter.html?action=changeCountry&amp;s_tid=gn_loc_drop&#39;&gt;España&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#39;http://se.mathworks.com/help/images/ref/imfilter.html?action=changeCountry&amp;s_tid=gn_loc_drop&#39;&gt;Sweden&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#39;http://ch.mathworks.com/help/images/ref/imfilter.html?action=changeCountry&amp;s_tid=gn_loc_drop&#39;&gt;Schweiz / Suisse&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#39;http://uk.mathworks.com/help/images/ref/imfilter.html?action=changeCountry&amp;s_tid=gn_loc_drop&#39;&gt;United Kingdom&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#39;http://ch.mathworks.com/company/worldwide/?s_tid=gn_loc_drop&#39;&gt;All Other Countries&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;&lt;/small&gt;&lt;/ul&gt;" data-original-title="" title="">
+<span class="icon-globe"></span>
+Schweiz
+<!-- <b class="caret"></b> -->
+</a>
+<script>
+$('.footernav_country a').popover();
+</script>
+</li>
+<li class="footernav_help"><a href="http://ch.mathworks.com/help.html">Site-Hilfe</a></li>
+<li class="footernav_patents"><a href="http://ch.mathworks.com/company/aboutus/policies_statements/patents.html">Patente</a></li>
+<li class="footernav_trademarks"><a href="http://ch.mathworks.com/company/aboutus/policies_statements/trademarks.html">Handelsmarken</a></li>
+<li class="footernav_privacy"><a href="http://ch.mathworks.com/company/aboutus/policies_statements/">Datenschutz</a></li>
+<li class="footernav_piracy"><a href="http://ch.mathworks.com/company/aboutus/policies_statements/piracy.html">Preventing Piracy</a></li>
+</ul>
+</div>
+<div class="clearfix visible-sm add_margin_30"></div>
+<div class="col-xs-12 col-lg-3">
+<div class="social_media">
+<ul class="social_media_icons">
+<li>
+<a href="http://ch.mathworks.com/programs/bounce_hub_generic.html?s_tid=mlc_fbk&url=http://www.facebook.com/MATLAB" target="_blank" class="svg_link">
+<object data="http://ch.mathworks.com/images/responsive/global/ico-facebook.svg" alt="Facebook" class="ico_facebook" type="image/svg+xml">
+<span class="ico_facebook ico_sm"></span>
+</object>
+</a>
+</li>
+<li>
+<a href="http://ch.mathworks.com/programs/bounce_hub_generic.html?s_tid=mlc_twt&url=http://www.twitter.com/MATLAB" target="_blank" class="svg_link">
+<object data="http://ch.mathworks.com/images/responsive/global/ico-twitter.svg" alt="Twitter" class="ico_twitter" type="image/svg+xml">
+<span class="ico_twitter ico_sm"></span>
+</object>
+</a>
+</li>
+<li>
+<a href="http://ch.mathworks.com/programs/bounce_hub_generic.html?s_tid=mlc_glg&url=https://plus.google.com/117177960465154322866?prsrc=3" target="_blank" class="svg_link">
+<object data="http://ch.mathworks.com/images/responsive/global/ico-google-plus.svg" alt="Google+" class="ico_google" type="image/svg+xml">
+<span class="ico_google ico_sm"></span>
+</object>
+</a>
+</li>
+<li>
+<a href="http://ch.mathworks.com/programs/bounce_hub_generic.html?s_tid=mlc_lkd&url=http://www.linkedin.com/company/the-mathworks_2" target="_blank" class="svg_link">
+<object data="http://ch.mathworks.com/images/responsive/global/ico-linkedin.svg" alt="LinkedIn" class="ico_linkedin" type="image/svg+xml">
+<span class="ico_linkedin ico_sm"></span>
+</object>
+</a>
+</li>
+<li>
+<a href="http://ch.mathworks.com/company/rss/index.html" class="svg_link">
+<object data="http://ch.mathworks.com/images/responsive/global/ico-rss.svg" alt="RSS" class="ico_rss" type="image/svg+xml">
+<span class="ico_rss ico_sm"></span>
+</object>
+</a>
+</li>
+</ul>
+<div class="clearfix"></div>
+<p><em>Folgen Sie uns</em></p>
+</div>
+</div>
+</div>
+<ul class="list-inline">
+<li class="lang_title">Language Options:</li>
+<li class="lang_de"><a href="javascript:openWindow('/includes/lib/i18n/index.html?language=de','350','300','scrollbars=no,menubar=no,toolbar=no,location=no,status=no,resizable=no')">Deutsch</a></li>
+<li class="lang_fr"><a href="javascript:openWindow('/includes/lib/i18n/index.html?language=fr','350','300','scrollbars=no,menubar=no,toolbar=no,location=no,status=no,resizable=no')">Français</a></li>
+</ul>
+</div>
+<!-- Quantcast Tag -->
+<script>
+(function(){
+var elem = document.createElement('script');
+elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/aquant.js?a=p-zfNtLVVEHXE-1";
+elem.async = true;
+elem.type = "text/javascript";
+var scpt = document.getElementsByTagName('script')[0];
+scpt.parentNode.insertBefore(elem,scpt);
+}());
+var smarttagdata={qacct: 'p-zfNtLVVEHXE-1',
+orderid: '',
+revenue: '',
+};
+</script>
+<noscript>
+&lt;img src="//pixel.quantserve.com/pixel/p-zfNtLVVEHXE-1.gif?labels=_fp.event.Default;" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/&gt;
+</noscript>
+<!-- End Quantcast tag -->
+<!-- BEGIN Google Code for UK and .COM Domains-->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1023777138;
+var google_conversion_label = "SVIBCMq3xwIQ8rKW6AM";
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/conversion.js">
+</script><iframe name="google_conversion_frame" title="Google conversion frame" width="300" height="13" src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/saved_resource.html" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no">&lt;img height="1" width="1" border="0" alt="" src="http://googleads.g.doubleclick.net/pagead/viewthroughconversion/1023777138/?frame=0&amp;random=1429132749413&amp;cv=7&amp;fst=1429132749413&amp;num=1&amp;fmt=1&amp;label=SVIBCMq3xwIQ8rKW6AM&amp;guid=ON&amp;u_h=800&amp;u_w=1280&amp;u_ah=729&amp;u_aw=1280&amp;u_cd=24&amp;u_his=10&amp;u_tz=120&amp;u_java=true&amp;u_nplug=9&amp;u_nmime=34&amp;frm=0&amp;url=http%3A//ch.mathworks.com/help/images/ref/imfilter.html&amp;ref=https%3A//www.google.ch/&amp;vis=1" /&gt;</iframe>
+<noscript>
+&lt;div style="display:inline;"&gt;
+&lt;img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1023777138/?value=0&amp;label=SVIBCMq3xwIQ8rKW6AM&amp;guid=ON&amp;script=0"/&gt;
+&lt;/div&gt;
+</noscript>
+<!-- END Google Code for UK and .COM Domains-->
+<!-- BEGIN Adobe DTM -->
+<script type="text/javascript">
+try {
+_satellite.pageBottom();
+} catch (e) {
+//something went wrong
+}
+</script>
+<!-- END Adobe DTM -->
+<!-- SiteCatalyst code version: H.24.4.
+Copyright 1996-2012 Adobe, Inc. All Rights Reserved
+More info available at http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript" src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/s_code.js"></script>
+<script language="JavaScript" type="text/javascript">
+<!--
+if (typeof mboxLoadSCPlugin == 'function') {
+mboxLoadSCPlugin(s);
+}
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+<script language="JavaScript" type="text/javascript"><!--
+if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+//--></script>
+<!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.24.4. -->
+<!-- BEGIN Qualaroo -->
+<script type="text/javascript">
+var _kiq = _kiq || [];
+(function(){
+setTimeout(function(){
+var d = document, f = d.getElementsByTagName('script')[0], s = d.createElement('script'); s.type = 'text/javascript';
+s.async = true; s.src = '//s3.amazonaws.com/ki.js/49559/ahy.js'; f.parentNode.insertBefore(s, f);
+}, 1);
+})();
+</script>
+<!-- END Qualaroo -->
+      </div>
+    </footer>
+
+  </div><script src="./N-D filtering of multidimensional images - MATLAB imfilter - MathWorks Schweiz_files/standard"></script>
+
+
+
+<a class="btn btn_primary" id="go-top" style="display: inline;"><span class="icon-arrow-open-up icon_24"></span></a></body></html>
